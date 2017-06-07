@@ -10,9 +10,9 @@ const config = {
 
 mongoose.Promise = global.Promise;
 
-if (process.env.NODE_ENV !== 'test') {
-	mongoose.connect('mongodb://localhost/cjball');
-}
+// if (process.env.NODE_ENV !== 'test') {
+// 	mongoose.connect('mongodb://localhost/cjball');
+// }
 
 SwaggerExpress.create(config, (err, swagExpress) => {
 	if (err) {
