@@ -1,0 +1,40 @@
+{
+  "name": "cjbinfo-api",
+  "version": "0.0.1",
+  "description": "Backend Node.js server for cjordanball.info website ",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "devStart": "NODE_ENV=development nodemon index.js",
+    "test": "NODE_ENV=test nodemon --exec 'mocha --recursive -R min'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjordanball/cjbinfo-api.git"
+  },
+  "author": "CJB3",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cjordanball/cjbinfo-api/issues"
+  },
+  "homepage": "https://github.com/cjordanball/cjbinfo-api#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.3",
+    "express": "^4.15.3",
+    "mocha": "^3.4.1",
+    "mongoose": "^4.9.9",
+    "supertest": "^3.0.0",
+    "swagger-express-mw": "^0.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.9.0"
+  }
+}

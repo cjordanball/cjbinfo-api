@@ -1,9 +1,36 @@
-const http = require('http');
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const SwaggerExpress = require('swagger-express-mw');
 
-const app = http.createServer((req, res) => {
-	res.writeHead(200, {'Content-Type': 'text/html'});
-	res.end('<h1>On the node again!</h1>');
-})
+const app = express();
+const config = {
+	appRoot: __dirname
+};
 
-app.listen(3142, 'localhost');
-console.log(('Server running at port 3142'));
+mongoose.Promise = global.Promise;
+
+if (process.env.NODE_ENV !== 'test') {
+	mongoose.connect('mongodb://localhost/cjball');
+}
+
+SwaggerExpress.create(config, (err, swagExpress) => {
+	if (err) {
+		throw err;
+	}
+	app.use(cors());
+
+	swagExpress.register(app);
+
+	app.use((errr, req, res, next) => {
+		res.status(422).send({
+			okay: false,
+			error: errr.message
+		});
+		next();
+	});
+	const port = process.env.PORT || 3142;
+	app.listen(port);
+});
+
+module.exports = app;

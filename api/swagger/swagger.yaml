@@ -1,0 +1,33 @@
+swagger: "2.0"
+info:
+  description: "API for cjordanball.info website"
+  version: "0.0.1"
+  title: "cjbinfo-api"
+host: localhost:3142
+basePath: /
+schemes:
+  - "http"
+  - "https"
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /:
+    get:
+      x-swagger-router-controller: "test_controller"
+      description: "A test endpoint to see if it works"
+      operationId: "tester"
+      parameters: []
+      responses:
+        200:
+          description: "a simple message"
+          schema:
+            $ref: "#/definitions/greeting"
+definitions:
+  greeting:
+    type: "object"
+    properties:
+      hi:
+        type: string
+        description: "a simple test string"
