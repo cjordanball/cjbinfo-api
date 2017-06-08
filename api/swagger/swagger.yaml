@@ -3,7 +3,7 @@ info:
   description: "API for cjordanball.info website"
   version: "0.0.1"
   title: "cjbinfo-api"
-host: localhost:3142
+host: localhost:8080
 basePath: /
 schemes:
   - "http"

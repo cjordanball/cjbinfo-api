@@ -29,7 +29,7 @@ SwaggerExpress.create(config, (err, swagExpress) => {
 		});
 		next();
 	});
-	const port = process.env.PORT || 3142;
+	const port = process.env.PORT || 8080;
 	app.listen(port);
 });
 
