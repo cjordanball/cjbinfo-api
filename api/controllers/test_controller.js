@@ -1,5 +1,7 @@
 const tester = (req, res) => {
-	res.send('redux cycle: ok, AJAX: ok');
+	res.send({
+		hi: 'redux cycle: ok, AJAX: ok'
+	});
 };
 
 module.exports = {
