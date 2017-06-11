@@ -15,6 +15,7 @@
         "document": false,
         "describe": false,
         "it": false,
+        "before": true,
         "beforeEach": true,
         "window": true
     }
