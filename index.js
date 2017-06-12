@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const SwaggerExpress = require('swagger-express-mw');
+const swaggerSecurityHandlers = require('./api/securityHandlers');
 
 const app = express();
 // const config = {
@@ -10,20 +11,7 @@ const app = express();
 
 const config = {
 	appRoot: __dirname, // required config
-	swaggerSecurityHandlers: {
-		JWTAuth(req, authOrSecDef, ApiKey, cb) {
-			console.log('JWT', ApiKey);
-			console.log('tf', ApiKey === '1234');
-			// your security code
-			if (ApiKey === '1234') {
-				console.log('inif', cb);
-				cb(true);
-			} else {
-				console.log('else');
-				cb(new Error('access denied!'));
-			}
-		}
-	}
+	swaggerSecurityHandlers
 };
 
 mongoose.Promise = global.Promise;
