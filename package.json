@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-	"serve": "NODE_ENV=production pm2 start index.js",
+    "serve": "NODE_ENV=production pm2 start index.js",
     "devStart": "NODE_ENV=development nodemon index.js",
     "test": "NODE_ENV=test nodemon --exec 'mocha --recursive -R min'"
   },
@@ -27,6 +27,8 @@
     "express": "^4.15.3",
     "mocha": "^3.4.1",
     "mongoose": "^4.9.9",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
     "supertest": "^3.0.0",
     "swagger-express-mw": "^0.7.0"
   },
