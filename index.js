@@ -21,7 +21,7 @@ case 'test':
 	mongoose.connect('mongodb://localhost/cjballInfoTestDB');
 	break;
 case 'production':
-	mongoose.connect('mongodb://roottoprodDB');
+	mongoose.connect('mongodb://cjballInfoTestDB');
 	break;
 default:
 	mongoose.connect('mongodb://localhost/cjballInfoDB');
