@@ -31,19 +31,63 @@ paths:
             $ref: "#/definitions/greeting"
         401:
           $ref: "#/responses/Unauthorized"
-  /goodstuff:
+  /bytebites/{level}:
     get:
-      x-swagger-router-controller: "test_controller"
+      x-swagger-router-controller: "bytebites_controller"
       description: "A protected get route"
-      operationId: 'testAuth'
-      parameters: []
-      security:
-        - JWTAuth: []
+      operationId: 'getAllProblems'
+      parameters:
+        - in: path
+          name: level
+          required: true
+          type: string
+          enum:
+            - easy
+            - medium
+            - hard
       responses:
         200:
-          description: "a simple message"
+          description: "a list of all problems by number and title"
           schema:
-            $ref: "#/definitions/greeting"
+            $ref: "#/definitions/problemList"
+        401:
+          $ref: "#/responses/Unauthorized"
+  /sudoku:
+    post:
+      x-swagger-router-controller: sudoku_controller
+      description: Path to controller which will solve sudoku puzzle
+      operationId: getSudokuSolution
+      parameters:
+        - in: body
+          name: inputString
+          required: true
+          schema:
+            type: object
+            required:
+              - numList
+            properties:
+              numList:
+                type: array
+                minItems: 81
+                maxItems: 81
+                items:
+                  type: string
+                  enum:
+                    - "1"
+                    - "2"
+                    - "3"
+                    - "4"
+                    - "5"
+                    - "6"
+                    - "7"
+                    - "8"
+                    - "9"
+                    - ""
+      responses:
+        200:
+          description: "the sudoku solution as an array of numbers"
+          schema:
+            $ref: "#/definitions/sudokuSolution"
         401:
           $ref: "#/responses/Unauthorized"
 responses:
@@ -58,6 +102,31 @@ definitions:
       hi:
         type: string
         description: "a simple test string"
+  problemList:
+    type: array
+    items:
+      type: object
+      properties:
+        serialNumber:
+          type: number
+        name:
+          type: string
+        description:
+          type: string
+        methods:
+          type: array
+          items:
+            type: string
+        concepts:
+          type: array
+          items:
+            type: string
+  sudokuSolution:
+    type: array
+    maxItems: 81
+    minItems: 81
+    items:
+      type: string
   Error:
     type: object
     properties:

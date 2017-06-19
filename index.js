@@ -18,12 +18,15 @@ mongoose.Promise = global.Promise;
 
 switch (process.env.NODE_ENV) {
 case 'test':
+console.log('test');
 	mongoose.connect('mongodb://localhost/cjballInfoTestDB');
 	break;
 case 'production':
-	mongoose.connect('mongodb://cjballInfoTestDB');
+console.log('production');
+	mongoose.connect('mongodb://localhost/cjballInfoDB');
 	break;
 default:
+console.log('dev');
 	mongoose.connect('mongodb://localhost/cjballInfoDB');
 }
 
