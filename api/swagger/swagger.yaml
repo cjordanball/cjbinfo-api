@@ -82,12 +82,16 @@ paths:
                     - "7"
                     - "8"
                     - "9"
-                    - ""
+                    - "-"
       responses:
         200:
           description: "the sudoku solution as an array of numbers"
           schema:
             $ref: "#/definitions/sudokuSolution"
+        400:
+          description: "doesn't work"
+        #   schema:
+          $ref: "#/responses/Unauthorized"
         401:
           $ref: "#/responses/Unauthorized"
 responses:
