@@ -63,7 +63,14 @@ const getSudokuSolution = (req, res) => {
 	});
 };
 
+const getIt = (req, res) => {
+	console.log('Here we are!');
+	res.send({
+		hi: 'sudoku get'
+	});
+};
 
 module.exports = {
-	getSudokuSolution
+	getSudokuSolution,
+	getIt
 };

@@ -35,7 +35,7 @@ paths:
     get:
       x-swagger-router-controller: "bytebites_controller"
       description: "A protected get route"
-      operationId: 'getAllProblems'
+      operationId: "getAllProblems"
       parameters:
         - in: path
           name: level
@@ -53,6 +53,18 @@ paths:
         401:
           $ref: "#/responses/Unauthorized"
   /sudoku:
+    get:
+      x-swagger-router-controller: sudoku_controller
+      description: get sudoku
+      operationId: getIt
+      parameters: []
+      responses:
+        200:
+          description: "a simple message"
+          schema:
+            $ref: "#/definitions/greeting"
+        401:
+          $ref: "#/responses/Unauthorized"
     post:
       x-swagger-router-controller: sudoku_controller
       description: Path to controller which will solve sudoku puzzle
