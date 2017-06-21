@@ -32,6 +32,7 @@ const puzzleCheck = (arr) => {
 };
 
 const getSudokuSolution = (req, res) => {
+	console.log('inGetSudokuSolution');
 	const inputArray = req.swagger.params.inputString.value.numList;
 	let puzzleArr = prep(inputArray);
 	let changed = true;
