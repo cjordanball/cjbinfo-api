@@ -12,11 +12,11 @@ consumes:
   - application/json
 produces:
   - application/json
-securityDefinitions:
-  JWTAuth:
-    type: apiKey
-    in: header
-    name: authorization
+#securityDefinitions:
+#  JWTAuth:
+#    type: apiKey
+#    in: header
+#    name: authorization
 paths:
   /:
     get:
@@ -90,8 +90,8 @@ paths:
             $ref: "#/definitions/sudokuSolution"
         400:
           description: "doesn't work"
-        #   schema:
-          $ref: "#/responses/Unauthorized"
+          schema:
+            $ref: "#/definitions/Error"
         401:
           $ref: "#/responses/Unauthorized"
 responses:
