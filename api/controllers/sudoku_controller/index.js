@@ -10,7 +10,7 @@ const deepEqual = require('./deepEqual');
 const arrayDeepCopy = require('./arrayDeepCopy');
 const reduceArray = require('./reduceArray');
 const bruteForce = require('./bruteForce');
-const cleanUp = require('./cleanup');
+const cleanUp = require('./cleanUp');
 
 const puzzleCheck = (arr) => {
 	const puzzleArr = arrayDeepCopy(arr);
